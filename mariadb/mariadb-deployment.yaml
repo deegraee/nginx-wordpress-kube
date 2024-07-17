@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb
+  namespace: mariadb-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mariadb
+  template:
+    metadata:
+      labels:
+        app: mariadb
+    spec:
+      containers:
+      - name: mariadb
+        image: gcr.io/micro-docker-test/mariadb:latest
+        ports:
+        - containerPort: 3306
+        envFrom:
+        - configMapRef:
+            name: mariadb-config
+        - secretRef:
+            name: mariadb-secret

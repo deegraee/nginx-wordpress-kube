@@ -1,0 +1,21 @@
+# proxy/nginx-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-proxy
+  namespace: proxy-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-proxy
+  template:
+    metadata:
+      labels:
+        app: nginx-proxy
+    spec:
+      containers:
+        - name: nginx-proxy
+          image: gcr.io/micro-docker-test/nginx-proxy:latest
+          ports:
+            - containerPort: 80
