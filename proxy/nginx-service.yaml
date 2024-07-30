@@ -5,7 +5,7 @@ metadata:
   namespace: proxy-namespace
 spec:
   type: LoadBalancer
-  loadBalancerIP: 34.46.112.76
+  loadBalancerIP: 34.70.17.104
   selector:
     app: nginx-proxy
   ports:
