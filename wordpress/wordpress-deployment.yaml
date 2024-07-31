@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: wordpress
-        image: gcr.io/micro-docker-test/wordpress:new-tag
+        image: gcr.io/micro-docker-test/wordpress:latest
         ports:
         - containerPort: 80
         envFrom:
